@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="#">
+        <h2>make user profile image with upload</h2>
+        <div class="imgcontainer">
+            <div>
+                <img src="frofile.png" alt="" class="avatar" id="image_show">
+
+            </div>
+            <input type="file" id="upload_file">
+        </div>
+    </form>
+
+
+    <!-- add script file for handling the upload -->
+
+    <script>
+        var upload_file = document.getElementById('upload_file');
+        var image_show = document.getElementById('image_show');
+
+        upload_file.style.display = 'none';
+
+        image_show.onclick = ()=>{
+            upload_file.click();
+        };
+
+        upload_file.addEventListener('change', ()=>{
+            let file = upload_file.files[0];
+
+            if(!file) return;
+            image_show.src = URL.createObjectURL(file);
+        })
+
+    </script>
+
+</body>
+</html>
